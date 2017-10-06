@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        let myContext = LAContext()
+        switch myContext.biometryType {
+        case .none: print("None")
+        case .typeFaceID: print("FaceID")
+        case .typeTouchID: print("TouchID")
+        }
     }
 
     override func didReceiveMemoryWarning() {
